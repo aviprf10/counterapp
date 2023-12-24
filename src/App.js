@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const CounterApp = () => {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    // Increase the count by the number of times the button is clicked
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const handleDecrement = () => {
+    // Always decrease the count by one
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Counter App</h1>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
     </div>
   );
-}
+};
 
-export default App;
+export default CounterApp;
